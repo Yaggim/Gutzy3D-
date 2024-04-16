@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- Definición del tipo de documento y especificación del idioma -->
+        <meta charset="UTF-8">
+
+        <!-- Icono de la pestaña del navegador -->
+        <link rel="shortcut icon" href="./assets/images/icono.ico">
+
+        <!-- Configuración de la escala inicial y dimensiones para dispositivos móviles -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Título de la página -->
+        <title>Gutzy3D</title>
+
+        <!-- Enlace a la hoja de estilos principal -->
+        <link rel="stylesheet" href="./css/styles.css">
+
+        <!-- Enlace a la biblioteca de iconos Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    <body>
+        <!-- Encabezado de la página -->
+        <header>
+            <!-- Barra de navegación -->
+            <nav>
+                <div class="container-nav">
+                    <!-- Logotipo de la página -->
+                    <div>
+                        <img src="./assets/logo/logo-amarillo.png" alt="Logo" class="logo">
+                    </div>
+
+                    <!-- Botón de alternancia para dispositivos móviles -->
+                    <button aria-label="Menú hamburguesa" class="nav-toggle">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Lista de navegación -->
+                    <ul class="nav-list" .nav-list_visible>
+                        <!-- Enlaces a las diferentes secciones de la página -->
+                        <li><a href="index.html" class="nav-menu-item">Inicio</a></li>
+                        <li><a href="pages\products.html" class="nav-menu-item">Productos</a></li>
+                        <li><a href="pages\servicios.html" class="nav-menu-item">Servicios</a></li>
+                        <li><a href="pages\contact.html" class="nav-menu-item">Contacto</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Contenedor del slider de imágenes -->
+        <div class="container__slider">
+            <div class="container-slider">
+                <!-- Botones de radio para controlar el slider -->
+                <input type="radio" name="slider" id="item-1" checked>
+                <input type="radio" name="slider" id="item-2">
+                <input type="radio" name="slider" id="item-3">
+                
+                <!-- Contenedor de las tarjetas del slider -->
+                <div class="cards-slider">
+                    <!-- Tarjeta 1 con imagen "crash" -->
+                    <label class="card-slider" for="item-1" id="selector-1">
+                        <img src="./assets/images/crash.jpg" class="img-slider" alt="crash">
+                    </label>
+                    
+                    <!-- Tarjeta 2 con imagen "maceta gatito" -->
+                    <label class="card-slider" for="item-2" id="selector-2">
+                        <img src="./assets/images/maceta-gatito.jpg" class="img-slider" alt="maceta gatito">
+                    </label>
+                    
+                    <!-- Tarjeta 3 con imagen "robert plant" -->
+                    <label class="card-slider" for="item-3" id="selector-3">
+                        <img src="./assets/images/robert-plant.png" class="img-slider" alt="robert plant">
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pie de página -->
+        <footer>
+            <!-- Logotipo en el pie de página -->
+            <div class="footer-logo">
+                <img src="./assets/logo/logo-amarillo.png" alt="Logo" class="logo">
+            </div>
+
+            <!-- Información de derechos de autor -->
+            <div class="footer">
+                <p>&copy; Marcelo Yaggi. Todos los derechos reservados.</p>
+            </div>
+
+            <!-- Enlace a la cuenta de Instagram -->
+            <div class="footer-social">
+                <a href="https://www.instagram.com/gutzy3d"><img src="./assets/images/instagram.png" alt="Instagram"></a>
+            </div>
+        </footer>
+
+        <!-- Script deferido para la lógica JavaScript de la página -->
+        <script defer src="./js/index.js"></script>
+    </body>
+</html>

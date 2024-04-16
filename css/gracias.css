@@ -1,0 +1,13 @@
+h1 {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}

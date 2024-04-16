@@ -1,0 +1,453 @@
+/* Importa el archivo reset.css para restablecer los estilos predeterminados del navegador */
+@import "./reset.css";
+
+/* Definición de la fuente personalizada 'Wildy Sans' */
+@font-face {
+    font-family: 'Wildy Sans';
+    src: url('../assets/fonts/Wildy\ Sans.otf') format('opentype');
+}
+
+/* Establece estilos predeterminados para todos los elementos */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales para el cuerpo de la página */
+body {
+    font-family: 'Wildy Sans', sans-serif;
+    margin-top: 3rem;
+    padding: 0;
+}
+
+/* Estilos del contenedor de navegación */
+.container-nav {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos del encabezado de la página */
+header {
+    background-color: #F1C76B;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 100;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* Estilos del logotipo en el encabezado */
+.logo {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Estilos de la barra de navegación */
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilos del botón de alternancia de la barra de navegación */
+.nav-toggle {
+    background-color: #F1C76B;
+    font-size: 30px;
+    display: none;
+    cursor: pointer;
+}
+
+/* Estilos de la lista de navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 1rem;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+/* Estilos de los enlaces de la lista de navegación */
+nav ul li a {
+    font-size: 1.375rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+/* Estilos del contenedor de sección general */
+.container-section {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Estilos de las tarjetas generales */
+.card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    width: 300px;
+    background-color: #e7e7e7;
+    margin-right: 1rem;
+}
+
+.card:last-child {
+    margin-right: 0;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.card .price {
+    font-size: 2.5rem;
+    color: #007BFF;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.card .buy-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.card .buy-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    margin: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+/* Estilos del formulario de contacto */
+.contact-form {
+    width: 100%;
+    padding-top: 1rem;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 8rem auto 1rem;
+    max-width: 600px;
+}
+
+.contact-form h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* Estilos del botón de enviar en el formulario de contacto */
+.contact-form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Estilos del botón de enviar en el formulario de contacto al pasar el mouse */
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos del contenedor del slider */
+.container__slider{
+    max-width: 1000px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+/* Estilos para los botones de radio (ocultar) */
+input[type=radio]{
+    display: none;
+}
+
+/* Estilos de la sección 'Quiénes somos' */
+.quienes-somos {
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+}
+
+.quienes-somos h1 {
+    font-size: 40px;
+}
+
+.quienes-somos p {
+    font-size: 20px;
+}
+
+/* Estilos del contenido general */
+.contenido {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Estilos del contenedor del slider en la sección de productos */
+.container__slider {
+    margin: 8rem auto 1rem;
+}
+
+.container-slider{
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 600px;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-slider{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card-slider{
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.img-slider{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Animaciones del slider */
+#item-2:checked ~ .cards-slider #selector-1,
+#item-1:checked ~ .cards-slider #selector-3,
+#item-3:checked ~ .cards-slider #selector-2{
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+#item-3:checked ~ .cards-slider #selector-1,
+#item-1:checked ~ .cards-slider #selector-2,
+#item-2:checked ~ .cards-slider #selector-3{
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+#item-1:checked ~ .cards-slider #selector-1,
+#item-2:checked ~ .cards-slider #selector-2,
+#item-3:checked ~ .cards-slider #selector-3{
+    transform: translateX(0) scale(1);
+    z-index: 1;
+}
+
+/* Estilos responsivos para pantallas pequeñas (máximo 768px) */
+@media (max-width: 768px) {
+    .container-section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .card {
+        margin: 1rem 0; /* Margen en la parte superior e inferior de las tarjetas para separarlas */
+    }
+
+    .nav-list {
+        flex-direction: column;
+        margin-right: 20px;
+        background-color: #F1C76B;
+        position: fixed;
+        left: 0;
+        top: 6rem;
+        width: 100%;
+        padding: 20px 0;
+        left: 100%;
+        transition: top 0.3s;
+    }
+
+    .nav-menu-item {
+        margin: 0 20px;
+        line-height: 30px;
+    }
+
+    .nav-toggle{
+        display: block;
+    }
+
+    .nav-list_visible{
+        left: 0;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .container__slider {
+        margin-top: 3rem;
+        margin-bottom: 0px;
+    }
+
+    .container-slider{
+        width: 100%;
+        max-width: 350px;
+        height: 100%;
+        max-height: 300px;
+        transform-style: preserve-3d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards-slider{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-slider{
+        position: absolute;
+        width: 60%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        cursor: pointer;
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .img-slider{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    .quienes-somos h1 {
+        margin: 3rem 0; 
+        font-size: 50px;
+    }
+
+    .quienes-somos p {
+        font-size: 20px;
+    }
+
+    .contenido {
+        padding: 10px;
+    }
+}
+
+/* Estilos responsivos para pantallas muy pequeñas (máximo 700px) */
+@media (max-width: 700px) {
+    .contact-form {
+        padding: 1rem; /* Menos relleno en dispositivos móviles */
+        width: 75%;
+        margin-bottom: 1rem;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        width: 100%;
+        padding: 0.25rem; /* Menos relleno en dispositivos móviles */
+        margin-bottom: 0.5rem; /* Menos margen inferior en dispositivos móviles */
+    }
+
+    .quienes-somos h1 {
+        margin: 3rem 0; 
+        font-size: 50px;
+    }
+
+    .quienes-somos p {
+        font-size: 20px;
+    }
+
+    .contenido {
+        padding: 10px;
+    }
+}
