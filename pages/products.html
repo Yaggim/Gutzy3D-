@@ -1,97 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="shortcut icon" href="../assets/images/icono.ico">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gutzy3D</title>
-        <link rel="stylesheet" href="../css/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <div class="container-nav">
-                    <div>
-                        <img src="../assets/logo/logo-amarillo.png" alt="Logo" class="logo">
-                    </div>
-                    <button aria-label="Menú Hamburguesa" class="nav-toggle">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <ul class="nav-list" .nav-list_visible>
-                            <li><a href="..\index.html" class="nav-menu-item">Inicio</a></li>
-                            <li><a href=".\products.html" class="nav-menu-item">Productos</a></li>
-                            <li><a href=".\servicios.html" class="nav-menu-item">Servicios</a></li>
-                            <li><a href=".\contact.html" class="nav-menu-item">Contacto</a></li>
-                    </ul>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../assets/images/icono.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gutzy3D</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="container-nav">
+                <div>
+                    <img src="../assets/logo/logo-amarillo.png" alt="Logo" class="logo">
                 </div>
-            </nav>
-        </header>
+                <button aria-label="Menú Hamburguesa" class="nav-toggle">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="nav-list" .nav-list_visible>
+                    <li><a href="..\index.html" class="nav-menu-item">Inicio</a></li>
+                    <li><a href=".\products.html" class="nav-menu-item">Productos</a></li>
+                    <li><a href=".\servicios.html" class="nav-menu-item">Servicios</a></li>
+                    <li><a href=".\contact.html" class="nav-menu-item">Contacto</a></li>
+                    <li class="submenu">
+                        <img src="img/cart.png" id="img-carrito" />
+                        <div id="carrito">
+                          <table id="lista-carrito" class="u-full-width">
+                            <thead>
+                              <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody></tbody>
+                          </table>
+                          <p id="total"></p>
         
-        <section class="container-section">
-            <div class="card">
-                <img src="../assets/images/maceta-gatito.jpg" alt="Maceta gatito">
-                <h2>Maceta Gatito</h2>
-                <p>
-                    Podés pedirla en los colores
-                    que más te gusten.
-                </p>
-                <form class="product-form">
-                    <label for="quantity">Cantidad:</label>
-                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
-                    <input type="hidden" name="product_name" value="Maceta gatito">
-                    <input type="hidden" name="product_price" value="1000">
-                    <p class="price">$1000</p>
-                    <button class="buy-button" type="button">Comprar</button> 
-                </form>
+                          <a href="#" id="vaciar-carrito" class="button u-full-width"
+                            >Vaciar Carrito</a
+                          >
+                          <a href="#" id="finalizar-compra" class="button u-full-width"
+                            >Finalizar Compra</a
+                          >
+                        </div>
+                      </li>
+                </ul>
             </div>
+        </nav>
+    </header>
 
-            <div class="card">
-                <img src="../assets/images/robert-plant.png" alt="Robert Plant">
-                <h2>Maceta Robert Plant</h2>
-                <p>
-                    Ideal para adornar dentro de casa.
-                </p>
-                <form class="product-form">
-                    <label for="quantity">Cantidad:</label>
-                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
-                    <input type="hidden" name="product_name" value="Robert Plant">
-                    <input type="hidden" name="product_price" value="9500">
-                    <p class="price">$9500</p>
-                    <button class="buy-button" type="button">Comprar</button> 
-                </form>
-            </div>
+    <section class="container-section">
+        
+    </section>
 
-            <div class="card">
-                <img src="../assets/images/crash.jpg" alt="Crash">
-                <h2>Soporte Crash</h2>
-                <p>
-                    ¿Qué estás esperando para pedir el tuyo?
-                </p>
-                <form class="product-form">
-                    <label for="quantity">Cantidad:</label>
-                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
-                    <input type="hidden" name="product_name" value="Crash">
-                    <input type="hidden" name="product_price" value="39.99">
-                    <p class="price">$39.99</p>
-                    <button class="buy-button" type="button">Comprar</button> 
-                </form>
-            </div>
+    <footer>
+        <div class="footer-logo">
+            <img src="../assets/logo/logo-amarillo.png" alt="Logo" class="logo">
+        </div>
+        <div class="footer">
+            <p>&copy; Marcelo Yaggi. Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/gutzy3d"><img src="../assets/images/instagram.png" alt="Instagram"></a>
+        </div>
+    </footer>
+    <script defer src="../js/index.js"></script>
+    <script src="../js/carrito.js" type="module"></script>
 
-        </section>
-        <footer>
-            <div class="footer-logo">
-                <img src="../assets/logo/logo-amarillo.png" alt="Logo" class="logo">
-            </div>
-            <div class="footer">
-                <p>&copy; Marcelo Yaggi. Todos los derechos reservados.</p>
-            </div>
-            <div class="footer-social">
-                <a href="https://www.instagram.com/gutzy3d"><img src="../assets/images/instagram.png" alt="Instagram"></a>
-            </div>
-        </footer>
-        <script defer src="../js/index.js"></script>
 
-    </body>
-</html> 
+</body>
+
+</html>
