@@ -71,11 +71,11 @@ function leerDatosArticulo(articulo) {
       if (articulo.id === infoArticulo.id) {
         articulo.cantidad++;
       }
-      total += articulo.cantidad * parseFloat(articulo.precio); // Actualizar el total
+      total += articulo.cantidad * parseFloat(articulo.precio); 
     });
   } else {
     articulosCarrito.push(infoArticulo);
-    total = articulosCarrito.reduce((acc, item) => acc + item.cantidad * parseFloat(item.precio), 0); // Calcular el total desde cero
+    total = articulosCarrito.reduce((acc, item) => acc + item.cantidad * parseFloat(item.precio), 0); 
   }
   carritoHTML();
   
