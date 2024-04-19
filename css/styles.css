@@ -97,6 +97,21 @@ nav ul li a:hover {
     color: #f39c12;
 }
 
+.nav-menu-login {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.375rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.nav-menu-login:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
 /* Estilos del contenedor de sección general */
 .container-section {
     padding-top: 4rem;
@@ -221,6 +236,83 @@ footer p {
 .contact-form button:hover {
     background-color: #0056b3;
 }
+
+/* Estilos del formulario de login */
+.login-form {
+    width: 100%;
+    padding-top: 1rem;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 8rem auto 1rem;
+    max-width: 600px;
+}
+
+.login-form h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.login-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* Estilos del botón de enviar en el formulario de login */
+.login-form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Estilos del botón de enviar en el formulario de login al pasar el mouse */
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos de la información de registro del formulario de login */
+.register-info {
+    padding: 2rem 0;
+}
+
+.register-info p {
+    font-weight: lighter;
+    margin-bottom: 1rem;
+}
+
+.register-info p span {
+    font-weight: bold;
+}
+
+.register-info a {
+    background-color: #F1C76B;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 
 /* Estilos del contenedor del slider */
 .container__slider{
@@ -353,8 +445,12 @@ input[type=radio]{
     }
 
     .nav-menu-item {
-        margin: 0 20px;
+        margin: 2opx 20px;
         line-height: 30px;
+    }
+
+    a.nav-menu-item.nav-menu-login {
+        line-height: 60px;
     }
 
     .nav-toggle{
@@ -365,7 +461,8 @@ input[type=radio]{
         left: 0;
     }
 
-    .contact-form {
+    .contact-form,
+    .login-form {
         width: 100%;
     }
 
@@ -424,7 +521,8 @@ input[type=radio]{
 
 /* Estilos responsivos para pantallas muy pequeñas (máximo 700px) */
 @media (max-width: 700px) {
-    .contact-form {
+    .contact-form,
+    .login-form {
         padding: 1rem; /* Menos relleno en dispositivos móviles */
         width: 75%;
         margin-bottom: 1rem;
@@ -432,7 +530,9 @@ input[type=radio]{
 
     .contact-form input[type="text"],
     .contact-form input[type="email"],
-    .contact-form textarea {
+    .contact-form textarea,
+    .login-form input[type="email"],
+    .login-form input[type="password"] {
         width: 100%;
         padding: 0.25rem; /* Menos relleno en dispositivos móviles */
         margin-bottom: 0.5rem; /* Menos margen inferior en dispositivos móviles */
