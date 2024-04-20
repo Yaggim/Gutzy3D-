@@ -449,7 +449,7 @@ input[type=radio]{
         line-height: 30px;
     }
 
-    a.nav-menu-item.nav-menu-login {
+    .nav-menu-login {
         line-height: 60px;
     }
 
