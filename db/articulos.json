@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre": "Maceta Gatito",
+        "descripcion": "Podes pedirla en los colores que mas te gusten",
+        "img": "../assets/images/maceta-gatito.jpg",
+        "precio": 1000
+    },
+    {
+        "id": 2,
+        "nombre": "Maceta Robert Plant",
+        "descripcion": "Ideal para adornar dentro de casa",
+        "img": "../assets/images/robert-plant.png",
+        "precio": 1500
+    },
+    {
+        "id": 3,
+        "nombre": "Soporte Crash",
+        "descripcion": "¿Que estas esperando para pedir el tuyo?",
+        "img": "../assets/images/crash.jpg",
+        "precio": 2000
+    }
+]
