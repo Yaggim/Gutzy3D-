@@ -315,6 +315,57 @@ footer p {
     text-decoration: none;
 }
 
+.login-form {
+    width: 100%;
+    padding-top: 1rem;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 8rem auto 1rem;
+    max-width: 600px;
+}
+
+.login-form h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.login-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* Estilos del botón de enviar en el formulario de login */
+.login-form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Estilos del botón de enviar en el formulario de login al pasar el mouse */
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
 /* Estilos del contenedor del slider */
 .container__slider{
     max-width: 1000px;
