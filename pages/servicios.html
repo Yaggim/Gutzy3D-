@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Gutzy3D</title>
         <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/carrito.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     </head>
     <body>
@@ -20,10 +21,36 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <ul class="nav-list" .nav-list_visible>
-                            <li><a href="..\index.html" class="nav-menu-item">Inicio</a></li>
-                            <li><a href=".\products.html" class="nav-menu-item">Productos</a></li>
-                            <li><a href=".\servicios.html" class="nav-menu-item">Servicios</a></li>
-                            <li><a href=".\contact.html" class="nav-menu-item">Contacto</a></li>
+                        <li><a href="..\index.html" class="nav-menu-item">Inicio</a></li>
+                        <li><a href=".\products.html" class="nav-menu-item">Productos</a></li>
+                        <li><a href=".\servicios.html" class="nav-menu-item">Servicios</a></li>
+                        <li><a href=".\contact.html" class="nav-menu-item">Contacto</a></li>
+                          <li class="submenu">
+                              <i class="fas fa-shopping-cart" id="img-carrito"></i>
+                              <div id="carrito">
+                                <table id="lista-carrito" class="u-full-width">
+                                  <thead>
+                                    <tr>
+                                      <th>Imagen</th>
+                                      <th>Nombre</th>
+                                      <th>Precio</th>
+                                      <th>Cantidad</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody></tbody>
+                                </table>
+                                <p id="total"></p>
+              
+                                <a href="#" id="vaciar-carrito" class="button u-full-width"
+                                  >Vaciar Carrito</a
+                                >
+                                <a href="#" id="finalizar-compra" class="button u-full-width"
+                                  >Finalizar Compra</a
+                                >
+                              </div>
+                            </li>
+                            <li><a href=".\login.html" class="nav-menu-item nav-menu-login">Login</a></li>
                     </ul>
                 </div>
             </nav>
