@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function comprobarEmail() {
-    if (Object.values(email).includes("") && Object.values(email).includes(false)) {
+    if (Object.values(email).includes("") || Object.values(email).includes(false)) {
       btnSubmit.classList.add("opacity-50");
       btnSubmit.disabled = true;
       return;
