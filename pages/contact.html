@@ -8,6 +8,7 @@
     <title>Gutzy3D</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="../css/validaciones.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
@@ -60,20 +61,17 @@
             <div>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                <span class="mensaje-error"></span>
             </div>
             <div>
                 <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="email" placeholder="Correo" required>
-                <span class="mensaje-error"></span>
+                <input type="email" id="email" name="email" placeholder="Correo" required>
             </div>
             <div>
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" placeholder="Escribí tu mensaje!" rows="3" required></textarea>
-                <span class="mensaje-error"></span>
             </div>
-            <div>
-                <label for="mensaje">Como nos conociste?</label>
+            <div id="select">
+                <label for="select">Como nos conociste?</label>
                 <select name="select">
                     <option value="" selected disabled>Selecciona una opción</option>
                     <option value="Instagram">Instagram</option>
@@ -82,10 +80,9 @@
                     <option value="Otro">Otro</option>
                 </select>
             </div>
-            <div>
+            <div class="checkdiv">
+                <input type="checkbox" id="checkbox" name="checkbox" value="second_checkbox" required />
                 <p>Acepte los terminos de condiciones</p>
-                <input type="checkbox" name="checkbox" value="second_checkbox" required />
-                <span class="mensaje-error"></span>
             </div>
             <button id="boton-enviar" type="submit">Enviar</button>
             <input type="hidden" name="_autoresponse"
@@ -108,7 +105,7 @@
     </footer>
     <!--Enlace externo al script-->
     <script src="../js/index.js"></script>
-    <script src="../js/validaciones.js" type="module"></script>
+    <script src="../js/validacionContact.js" type="module"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const params = new URLSearchParams(window.location.search);

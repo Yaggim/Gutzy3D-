@@ -1,0 +1,27 @@
+.bg-red-600 {
+    background: #d64b4b;
+}
+
+.text-white {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    text-align: center;
+}
+
+.p-2 {
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.checkdiv {
+    display: flex;
+}
+
+#select {
+    margin-bottom: 10px;
+}

@@ -8,6 +8,7 @@
     <title>Gutzy3D</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="../css/validaciones.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
@@ -59,16 +60,12 @@
         <h1>Ingresar al sitio</h1>
         <form id="loginForm" action="https://formsubmit.co/a176c27c60c0458006d3447051e63609" method="POST">
             <div>
-
                 <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="email" placeholder="Correo" required>
-                <span class="mensaje-error"></span>
+                <input type="email" id="email" name="email" placeholder="Correo" required>
             </div>
             <div>
-
                 <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" placeholder="Contraseña" required>
-                <span class="mensaje-error"></span>
             </div>
             <button type="submit">Login</button>
         </form>
@@ -92,7 +89,7 @@
     </footer>
     <!--Enlace externo al script-->
     <script src="../js/index.js"></script>
-    <script src="../js/validaciones.js" type="module"></script>
+    <script src="../js/validacionLogin.js" type="module"></script>
 </body>
 
 </html>
