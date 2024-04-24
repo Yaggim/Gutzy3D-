@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     email: "",
     nombre: "",
     mensaje: "",
-    checkbox: false
+    checkbox: false,
   };
 
   comprobarEmail();
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   inputEmail.addEventListener("blur", validar);
   inputMensaje.addEventListener("blur", validar);
   checkbox.addEventListener("input", validar);
+  checkbox.addEventListener("blur", validar);
 
   function validar(e) {
     if (e.target.value.trim() === "") {
@@ -41,13 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
       comprobarEmail();
       return;
     }
-    
+
     if (!checkbox.checked) {
-        mostrarAlerta(
-            "Acepta los términos y condiciones",
-            checkbox.parentElement
-        );
-        email[e.target.name] = false;
+      mostrarAlerta(
+        "Acepta los términos y condiciones",
+        checkbox.parentElement
+      );
+      email[e.target.name] = false;
       comprobarEmail();
       return;
     }
@@ -83,7 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function comprobarEmail() {
-    if (Object.values(email).includes("") || Object.values(email).includes(false)) {
+    if (
+      Object.values(email).includes("") ||
+      Object.values(email).includes(false)
+    ) {
       btnSubmit.classList.add("opacity-50");
       btnSubmit.disabled = true;
       return;
