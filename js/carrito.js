@@ -5,22 +5,23 @@ const seccionArticulos = document.querySelector(".container-section");
 //Listar Productos
 export async function listarArticulos() {
   const articulosLista = await articulos();
+  const articuloDiv = document.createElement("ul");
+  articuloDiv.classList.add("product__items"); // Añadir la clase product__items
   articulosLista.forEach((articulo) => {
     const { id, nombre, descripcion, img, precio } = articulo;
-    const articuloDiv = document.createElement("div");
-    articuloDiv.innerHTML = `
-    <div class="card" id="${id}">
-    <img src="${img}" alt="Robert Plant">
-    <h2>${nombre}</h2>
-    <p>
-        ${descripcion}
-    </p>
-    <p class="price">$${precio}</p>
-    <button class="buy-button" type="button">Comprar</button>
-</div>
+    const li = document.createElement("li");
+    li.classList.add("card");
+    li.id = id;
+    li.innerHTML = `
+      <img src="${img}" alt="${nombre}">
+      <h2>${nombre}</h2>
+      <p>${descripcion}</p>
+      <p class="price">$${precio}</p>
+      <button class="buy-button" type="button">Comprar</button>
     `;
-    seccionArticulos.appendChild(articuloDiv);
+    articuloDiv.appendChild(li);
   });
+  seccionArticulos.appendChild(articuloDiv);
 }
 listarArticulos();
 

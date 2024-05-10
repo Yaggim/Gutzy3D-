@@ -43,6 +43,8 @@ header {
     left: 0;
 }
 
+
+
 /* Estilos del logotipo en el encabezado */
 .logo {
     width: 100px;
@@ -114,11 +116,19 @@ nav ul li a:hover {
 
 /* Estilos del contenedor de sección general */
 .container-section {
-    padding-top: 4rem;
+    padding-top: calc(4rem + 3rem); /* 4rem del padding-top original + 3rem del margin-top del body */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: calc(100vh - 7rem); /* 7rem suma del header y footer */
+    margin-bottom: 3rem;
+}
+
+.product__items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
 }
 
 /* Estilos de las tarjetas generales */
@@ -472,7 +482,7 @@ input[type=radio]{
 
 /* Estilos responsivos para pantallas pequeñas (máximo 768px) */
 @media (max-width: 768px) {
-    .container-section {
+    .container-section {   
         width: 100%;
         height: auto;
         display: flex;
