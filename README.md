@@ -29,7 +29,7 @@ Gutzy3D ofrece una experiencia de compra en línea única con una variedad de pr
 
 ## Reconocimientos
 
-- **Diseño Web**: Desarrollado por Marcelo Yaggi.
+- **Diseño Web**: Desarrollado por Gutzy3D.
 - **Iconos**: Font Awesome (https://fontawesome.com/)
 
 ## Agradecimientos
