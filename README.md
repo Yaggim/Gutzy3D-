@@ -6,6 +6,13 @@
 
 Gutzy3D ofrece una experiencia de compra en línea única con una variedad de productos que van desde artículos 3D impresos hasta productos de jardinería. Nuestra plataforma está diseñada para proporcionar una interfaz fácil de usar y una navegación intuitiva para que encuentres rápidamente lo que estás buscando.
 
+## Integrantes Grupo 26
+
+Marcelo Yaggi	yaggim@gmail.com
+Nicolas Garay	garay.nicolas002@gmail.com
+Eugenio Garcia	eugeniog288@gmail.com
+Emanuel Ribas	ribasssemanuel@gmail.com
+
 ## Características Destacadas
 
 - **Productos Únicos**: Descubre artículos exclusivos y creativos.
