@@ -1,4 +1,4 @@
- # Gutzy3D Tienda Online
+# Gutzy3D Tienda Online
 
 ¡Bienvenido a la Tienda Online Gutzy3D!
 
