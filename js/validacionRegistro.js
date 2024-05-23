@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputPassword = document.querySelector("#password");
   const inputConfirmPassword = document.querySelector("#confirmPassword");
   const btnSubmit = document.querySelector("#submit");
+  const form = document.querySelector("#registerForm");
 
   const email = {
     nombre: "",
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   comprobarEmail();
 
-  //Asignar eventos
+  // Asignar eventos
   inputNombre.addEventListener("input", validar);
   inputApellido.addEventListener("input", validar);
   inputEmail.addEventListener("input", validar);
@@ -27,6 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
   inputEmail.addEventListener("blur", validar);
   inputPassword.addEventListener("blur", validar);
   inputConfirmPassword.addEventListener("blur", validar);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (comprobarEmail()) {
+      mostrarMensajeExito("Registro exitoso");
+    }
+  });
 
   function validar(e) {
     if (e.target.value.trim() === "") {
@@ -40,13 +48,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (e.target.id === "email" && !validarEmail(e.target.value)) {
-      mostrarAlerta("El email no es valido", e.target.parentElement);
+      mostrarAlerta("El email no es válido", e.target.parentElement);
       email[e.target.name] = "";
       comprobarEmail();
       return;
     }
 
-    if( e.target.id === "confirmPassword" && e.target.value !== inputPassword.value) {
+    if (e.target.id === "confirmPassword" && e.target.value !== inputPassword.value) {
       mostrarAlerta("Las contraseñas no coinciden", e.target.parentElement);
       email[e.target.name] = "";
       comprobarEmail();
@@ -54,19 +62,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     limpiarAlerta(e.target.parentElement);
-    // Asignaar los valores
+    // Asignar los valores
     email[e.target.name] = e.target.value.trim().toLowerCase();
-    comprobarEmail(email);
+    comprobarEmail();
   }
 
   function mostrarAlerta(mensaje, referencia) {
-    //Limpiar alertas previas
+    // Limpiar alertas previas
     limpiarAlerta(referencia);
-    //Generar alerta html
+    // Generar alerta html
     const error = document.createElement("P");
     error.textContent = mensaje;
     error.classList.add("bg-red-600", "text-white", "p-2");
-    //Inyectar error al formulario
+    // Inyectar error al formulario
     referencia.appendChild(error);
   }
 
@@ -79,17 +87,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function validarEmail(email) {
     const regex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-    const resultado = regex.test(email);
-    return resultado;
+    return regex.test(email);
   }
 
   function comprobarEmail() {
     if (Object.values(email).includes("")) {
       btnSubmit.classList.add("opacity-50");
       btnSubmit.disabled = true;
-      return;
+      return false;
     }
     btnSubmit.classList.remove("opacity-50");
     btnSubmit.disabled = false;
+    return true;
+  }
+
+  function mostrarMensajeExito(mensaje) {
+    const mensajeExito = document.createElement("P");
+    mensajeExito.textContent = mensaje;
+    mensajeExito.classList.add("bg-green-600", "text-white", "p-2", "mt-2");
+    form.appendChild(mensajeExito);
+
+    setTimeout(() => {
+      mensajeExito.remove();
+      form.reset();
+      Object.keys(email).forEach(key => email[key] = "");
+      comprobarEmail();
+    }, 3000);
   }
 });

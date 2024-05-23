@@ -2,7 +2,7 @@ import { articulos } from "./conexionAPI.js";
 
 const seccionArticulos = document.querySelector(".container-section");
 
-//Listar Productos
+// Listar Productos
 export async function listarArticulos() {
   const articulosLista = await articulos();
   const articuloDiv = document.createElement("ul");
@@ -30,6 +30,7 @@ listarArticulos();
 const carrito = document.querySelector("#carrito");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const vaciarCarritoBtn = document.querySelector("#vaciar-carrito");
+const finalizarCompraBtn = document.querySelector("#finalizar-compra");
 let articulosCarrito = [];
 
 seccionArticulos.addEventListener("click", (event) => {
@@ -42,9 +43,22 @@ seccionArticulos.addEventListener("click", (event) => {
 vaciarCarritoBtn.addEventListener("click", () => {
   articulosCarrito = [];
   limpiarHTML();
+  document.querySelector("#total").innerHTML = "Total: $0";
 });
 
-carrito.addEventListener('click',eliminarArticulo);
+carrito.addEventListener('click', eliminarArticulo);
+
+finalizarCompraBtn.addEventListener("click", () => {
+  if (articulosCarrito.length === 0) {
+    alert("El carrito está vacío");
+  } else {
+    alert("¡Compra exitosa!");
+    articulosCarrito = []; // Vaciar el carrito después de la compra
+    limpiarHTML();
+    document.querySelector("#total").innerHTML = "Total: $0";
+  }
+});
+
 function eliminarArticulo(e) {
   if (e.target.classList.contains("borrar-curso")) {
     const articuloId = e.target.getAttribute("data-id");
@@ -55,15 +69,14 @@ function eliminarArticulo(e) {
 
 function leerDatosArticulo(articulo) {
   const infoArticulo = {
-    id:articulo.querySelector("img").src,
+    id: articulo.id,
     imagen: articulo.querySelector("img").src,
     nombre: articulo.querySelector("h2").textContent,
     descripcion: articulo.querySelector("p").textContent,
     precio: parseFloat(articulo.querySelector(".price").textContent.replace('$', '')),
     cantidad: 1,
   };
-  console.log()
-  let total = 0;
+
   const existe = articulosCarrito.some(
     (articulo) => articulo.id === infoArticulo.id
   );
@@ -72,17 +85,15 @@ function leerDatosArticulo(articulo) {
       if (articulo.id === infoArticulo.id) {
         articulo.cantidad++;
       }
-      total += articulo.cantidad * parseFloat(articulo.precio); 
     });
   } else {
     articulosCarrito.push(infoArticulo);
-    total = articulosCarrito.reduce((acc, item) => acc + item.cantidad * parseFloat(item.precio), 0); 
   }
-  carritoHTML();
-  
-  document.querySelector("#total").innerHTML = `Total: ${total}`;
-}
 
+  const total = articulosCarrito.reduce((acc, item) => acc + item.cantidad * parseFloat(item.precio), 0); 
+  carritoHTML();
+  document.querySelector("#total").innerHTML = `Total: $${total}`;
+}
 
 function carritoHTML() {
   limpiarHTML();

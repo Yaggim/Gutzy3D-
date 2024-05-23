@@ -11,62 +11,41 @@
         "nombre": "Maceta Robert Plant",
         "descripcion": "Ideal para adornar dentro de casa",
         "img": "../assets/images/robert-plant.png",
-        "precio": 1500
+        "precio": 10000
     },
     {
         "id": 3,
         "nombre": "Soporte Crash",
         "descripcion": "¿Que estas esperando para pedir el tuyo?",
         "img": "../assets/images/crash.jpg",
-        "precio": 2000
+        "precio": 17000
     },
     {
         "id": 4,
-        "nombre": "Maceta Gatito",
-        "descripcion": "Podes pedirla en los colores que mas te gusten",
-        "img": "../assets/images/maceta-gatito.jpg",
-        "precio": 1000
+        "nombre": "Funko Maradona",
+        "descripcion": "Dale campeon!!",
+        "img": "../assets/images/Funko-Maradona.png",
+        "precio": 19000
     },
     {
         "id": 5,
-        "nombre": "Maceta Robert Plant",
-        "descripcion": "Ideal para adornar dentro de casa",
-        "img": "../assets/images/robert-plant.png",
-        "precio": 1500
+        "nombre": "Soporte Octopus",
+        "descripcion": "Ideal para tu celular",
+        "img": "../assets/images/Octopus-Soporte.png",
+        "precio": 8000
     },
     {
         "id": 6,
-        "nombre": "Soporte Crash",
-        "descripcion": "¿Que estas esperando para pedir el tuyo?",
-        "img": "../assets/images/crash.jpg",
-        "precio": 2000
+        "nombre": "Funko Maradona",
+        "descripcion": "Muchachos!!",
+        "img": "../assets/images/Funko-Messi.png",
+        "precio": 20000
     },
     {
         "id": 7,
-        "nombre": "Soporte Crash",
-        "descripcion": "¿Que estas esperando para pedir el tuyo?",
-        "img": "../assets/images/crash.jpg",
-        "precio": 2000
-    },
-    {
-        "id": 8,
-        "nombre": "Maceta Gatito",
-        "descripcion": "Podes pedirla en los colores que mas te gusten",
-        "img": "../assets/images/maceta-gatito.jpg",
-        "precio": 1000
-    },
-    {
-        "id": 9,
-        "nombre": "Maceta Robert Plant",
-        "descripcion": "Ideal para adornar dentro de casa",
-        "img": "../assets/images/robert-plant.png",
-        "precio": 1500
-    },
-    {
-        "id": 10,
-        "nombre": "Soporte Crash",
-        "descripcion": "¿Que estas esperando para pedir el tuyo?",
-        "img": "../assets/images/crash.jpg",
-        "precio": 2000
+        "nombre": "Portgas Chibi",
+        "descripcion": "Para los amantes de One piece",
+        "img": "../assets/images/Portgas-Chibi.png",
+        "precio": 16000
     }
 ]

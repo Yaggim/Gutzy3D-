@@ -480,6 +480,19 @@ input[type=radio]{
     z-index: 1;
 }
 
+.bg-green-600 {
+    background-color: #28a745; /* Ajusta este color según tu diseño */
+  }
+  .text-white {
+    color: #fff;
+  }
+  .p-2 {
+    padding: 0.5rem;
+  }
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+
 /* Estilos responsivos para pantallas pequeñas (máximo 768px) */
 @media (max-width: 768px) {
     .container-section {   
