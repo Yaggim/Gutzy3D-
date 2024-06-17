@@ -36,9 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
         nombre: inputNombre.value.trim(),
         apellido: inputApellido.value.trim(),
         email: inputEmail.value.trim().toLowerCase(),
-        contraseña: inputPassword.value,
-        confirmarContraseña: inputConfirmPassword.value,
-        idRol: 2 // Ajusta el id del rol según tu backend
+        password: inputPassword.value,
+        confirmarContraseña: inputConfirmPassword.value
       };
 
       registrarUsuario(usuario);
@@ -114,27 +113,27 @@ document.addEventListener("DOMContentLoaded", function () {
     return Object.values(email).every(value => value !== "");
   }
 
-  function registrarUsuario(usuario) {
-    fetch('https://backgutzy3d.onrender.com/api/usuarios', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(usuario)
-    })
-    .then(response => {
+  async function registrarUsuario(usuario) {
+    try {
+      const response = await fetch('https://backgutzy3d.onrender.com/api/usuarios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(usuario)
+      });
+
       if (!response.ok) {
-        throw new Error('Error al registrar usuario');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Error en el registro');
       }
-      return response.json();
-    })
-    .then(data => {
+
+      const data = await response.json();
       mostrarMensajeExito("Registro exitoso");
-    })
-    .catch(error => {
+    } catch (error) {
       console.error('Error:', error);
-      mostrarAlerta('Error al registrar usuario', form);
-    });
+      mostrarAlerta(error.message, form);
+    }
   }
 
   function mostrarMensajeExito(mensaje) {
