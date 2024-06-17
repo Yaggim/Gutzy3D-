@@ -120,3 +120,18 @@ function limpiarHTML() {
     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Verificar el estado de sesión al cargar la página de login
+  ajustarVisibilidadBotones();
+});
+
+function ajustarVisibilidadBotones() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const btnLogin = document.querySelector(".nav-menu-login");
+
+  if (isLoggedIn && btnLogin) {
+      // Ocultar botón de login si el usuario está autenticado
+      btnLogin.style.display = "none";
+  }
+}

@@ -9,37 +9,78 @@ navToggle.addEventListener("click", () => {
     // Alterna la visibilidad de la lista de navegación al hacer clic
     navList.classList.toggle("nav-list_visible")
 })
+document.addEventListener("DOMContentLoaded", function () {
+    // Verificar el estado de sesión al cargar la página
+    ajustarVisibilidadBotones();
 
-// Espera a que se cargue el contenido del documento antes de ejecutar el siguiente código
-// document.addEventListener("DOMContentLoaded", function () {
-//     // Selecciona todos los formularios de productos en la página
-//     const productForms = document.querySelectorAll(".product-form");
+    // Configurar el evento de submit para el formulario de login si es necesario
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Evitar envío por defecto del formulario
+            // Aquí puedes añadir la lógica para manejar el login si es necesario
+        });
+    }
 
-//     // Itera sobre cada formulario de producto
-//     productForms.forEach(function (form) {
-//         // Agrega un evento de clic al botón de compra dentro de cada formulario
-//         form.querySelector(".buy-button").addEventListener("click", function (event) {
-//             // Evita que el formulario se envíe por el comportamiento predeterminado
-//             event.preventDefault();
+    // Configurar el evento de click para el botón de cerrar sesión si está presente
+    const btnCerrarSesion = document.querySelector('.nav-menu-logout');
+    if (btnCerrarSesion) {
+        btnCerrarSesion.addEventListener('click', cerrarSesion);
+    }
+});
 
-//             // Obtiene la cantidad, el nombre del producto, el precio y calcula el precio total
-//             const quantity = form.querySelector("input[name='quantity']").value;
-//             const product_name = form.querySelector("input[name='product_name']").value;
-//             const product_price = form.querySelector("input[name='product_price']").value;
-//             const total_price = quantity * product_price;
+// Función para ajustar la visibilidad de los botones según el estado de sesión
+function ajustarVisibilidadBotones() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const btnLogin = document.querySelector(".nav-menu-login");
+    const navList = document.querySelector(".nav-list");
 
-//             // Construye un mensaje con la información del producto y el precio total
-//             const message = `¡Quiero comprar ${quantity} ${product_name} por un total de $${total_price.toFixed(2)}!`;
+    if (isLoggedIn) {
+        // Ocultar botón de login si el usuario está autenticado
+        if (btnLogin) {
+            btnLogin.style.display = "none";
+        }
 
-//             // Redirige al formulario de contacto en contact.html y pasa los datos a través de la URL
-//             const contactFormURL = "contact.html?" +
-//                 `product_name=${encodeURIComponent(product_name)}` +
-//                 `&product_price=${encodeURIComponent(product_price)}` +
-//                 `&total_price=${encodeURIComponent(total_price)}` +
-//                 `&message=${encodeURIComponent(message)}`;
+        // Mostrar botón de cerrar sesión si no está ya presente
+        if (!document.querySelector(".nav-menu-logout")) {
+            const btnCerrarSesion = document.createElement("li");
+            const btnCerrarSesionLink = document.createElement("a");
+            btnCerrarSesionLink.textContent = "Cerrar Sesión";
+            btnCerrarSesionLink.classList.add("nav-menu-item", "nav-menu-logout");
+            btnCerrarSesionLink.href = "#"; // Puedes cambiar esto si es necesario
+            btnCerrarSesionLink.addEventListener("click", cerrarSesion);
 
-//             // Redirige a la página de contacto
-//             window.location.href = contactFormURL;
-//         });
-//     });
-// });
+            btnCerrarSesion.appendChild(btnCerrarSesionLink);
+            navList.appendChild(btnCerrarSesion);
+        }
+    } else {
+        // Mostrar botón de login si el usuario no está autenticado y estamos en login.html
+        if (btnLogin && esPaginaLogin()) {
+            btnLogin.style.display = "block";
+        }
+
+        // Ocultar el botón de cerrar sesión si está presente
+        const btnCerrarSesion = document.querySelector(".nav-menu-logout");
+        if (btnCerrarSesion) {
+            btnCerrarSesion.parentElement.removeChild(btnCerrarSesion);
+        }
+    }
+}
+
+// Función para verificar si estamos en la página de login.html
+function esPaginaLogin() {
+    return window.location.pathname.includes('login.html');
+}
+
+// Función para cerrar sesión
+function cerrarSesion(e) {
+    e.preventDefault();
+    // Limpiar el estado de sesión
+    localStorage.removeItem('isLoggedIn');
+    // Redirigir al inicio si estamos en login.html
+    if (esPaginaLogin()) {
+        ajustarVisibilidadBotones(); // Asegurar que el botón de login se muestre
+    } else {
+        window.location.href = '/index.html';
+    }
+}
