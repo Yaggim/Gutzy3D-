@@ -102,8 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const data = await response.json();
 
         if (data.redirectUrl) {
-            console.log('Redirigiendo a:', data.redirectUrl); // Añadir log para depuración
-            window.location.href = data.redirectUrl;
+            console.log('Redirigiendo a:', data.redirectUrl); 
+            window.location.href = 'https://backgutzy3d.onrender.com/login.html';
         } else if (data.message && data.message === "Login exitoso") {
             console.log('Login exitoso como cliente');
             localStorage.setItem('isLoggedIn', 'true');
