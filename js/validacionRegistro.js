@@ -31,39 +31,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (comprobarEmail()) {
-      mostrarMensajeExito("Registro exitoso");
+    if (comprobarFormulario()) {
+      const usuario = {
+        nombre: inputNombre.value.trim(),
+        apellido: inputApellido.value.trim(),
+        email: inputEmail.value.trim().toLowerCase(),
+        contraseña: inputPassword.value,
+        confirmarContraseña: inputConfirmPassword.value,
+        idRol: 2 // Ajusta el id del rol según tu backend
+      };
+
+      registrarUsuario(usuario);
     }
   });
 
   function validar(e) {
-    if (e.target.value.trim() === "") {
-      mostrarAlerta(
-        `El campo ${e.target.id} es obligatorio`,
-        e.target.parentElement
-      );
-      email[e.target.name] = "";
+    const input = e.target;
+    const value = input.value.trim();
+
+    if (value === "") {
+      mostrarAlerta(`El campo ${input.id} es obligatorio`, input.parentElement);
+      email[input.name] = "";
       comprobarEmail();
       return;
     }
 
-    if (e.target.id === "email" && !validarEmail(e.target.value)) {
-      mostrarAlerta("El email no es válido", e.target.parentElement);
-      email[e.target.name] = "";
+    if (input.id === "email" && !validarEmail(value)) {
+      mostrarAlerta("El email no es válido", input.parentElement);
+      email[input.name] = "";
       comprobarEmail();
       return;
     }
 
-    if (e.target.id === "confirmPassword" && e.target.value !== inputPassword.value) {
-      mostrarAlerta("Las contraseñas no coinciden", e.target.parentElement);
-      email[e.target.name] = "";
+    if (input.id === "confirmPassword" && value !== inputPassword.value) {
+      mostrarAlerta("Las contraseñas no coinciden", input.parentElement);
+      email[input.name] = "";
       comprobarEmail();
       return;
     }
 
-    limpiarAlerta(e.target.parentElement);
+    limpiarAlerta(input.parentElement);
     // Asignar los valores
-    email[e.target.name] = e.target.value.trim().toLowerCase();
+    email[input.name] = value.toLowerCase();
     comprobarEmail();
   }
 
@@ -71,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Limpiar alertas previas
     limpiarAlerta(referencia);
     // Generar alerta html
-    const error = document.createElement("P");
+    const error = document.createElement("p");
     error.textContent = mensaje;
     error.classList.add("bg-red-600", "text-white", "p-2");
     // Inyectar error al formulario
@@ -91,18 +100,45 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function comprobarEmail() {
-    if (Object.values(email).includes("")) {
+    const todosCompletos = Object.values(email).every(value => value !== "");
+    if (!todosCompletos) {
       btnSubmit.classList.add("opacity-50");
       btnSubmit.disabled = true;
-      return false;
+    } else {
+      btnSubmit.classList.remove("opacity-50");
+      btnSubmit.disabled = false;
     }
-    btnSubmit.classList.remove("opacity-50");
-    btnSubmit.disabled = false;
-    return true;
+  }
+
+  function comprobarFormulario() {
+    return Object.values(email).every(value => value !== "");
+  }
+
+  function registrarUsuario(usuario) {
+    fetch('https://backgutzy3d.onrender.com/api/usuarios', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(usuario)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al registrar usuario');
+      }
+      return response.json();
+    })
+    .then(data => {
+      mostrarMensajeExito("Registro exitoso");
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      mostrarAlerta('Error al registrar usuario', form);
+    });
   }
 
   function mostrarMensajeExito(mensaje) {
-    const mensajeExito = document.createElement("P");
+    const mensajeExito = document.createElement("p");
     mensajeExito.textContent = mensaje;
     mensajeExito.classList.add("bg-green-600", "text-white", "p-2", "mt-2");
     form.appendChild(mensajeExito);
