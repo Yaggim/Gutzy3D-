@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (data.redirectUrl) {
             console.log('Redirigiendo a:', data.redirectUrl); 
-            window.location.href = 'https://backgutzy3d.onrender.com/login.html';
+            window.location.href = 'https://backgutzy3d.onrender.com';
         } else if (data.message && data.message === "Login exitoso") {
             console.log('Login exitoso como cliente');
             localStorage.setItem('isLoggedIn', 'true');
