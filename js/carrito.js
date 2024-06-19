@@ -1,6 +1,7 @@
 import { articulos } from "./conexionAPI.js";
 
 const seccionArticulos = document.querySelector(".container-section");
+const searchBox = document.querySelector("#search");
 
 // Listar Productos
 export async function listarArticulos() {
@@ -134,4 +135,34 @@ function ajustarVisibilidadBotones() {
       // Ocultar botón de login si el usuario está autenticado
       btnLogin.style.display = "none";
   }
+}
+
+searchBox.addEventListener("input", async () => {
+  const articulosLista = await articulos();
+  const searchTerm = searchBox.value.toLowerCase();
+  const filteredArticulos = articulosLista.filter((articulo) =>
+    articulo.nombre.toLowerCase().includes(searchTerm) || articulo.descripcion.toLowerCase().includes(searchTerm)
+  );
+  mostrarArticulos(filteredArticulos);
+});
+
+function mostrarArticulos(articulosLista) {
+  seccionArticulos.innerHTML = ""; // Limpiar la sección antes de mostrar los productos
+  const articuloDiv = document.createElement("ul");
+  articuloDiv.classList.add("product__items");
+  articulosLista.forEach((articulo) => {
+    const { id, nombre, descripcion, img, precio } = articulo;
+    const li = document.createElement("li");
+    li.classList.add("card");
+    li.id = id;
+    li.innerHTML = `
+      <img src="${img}" alt="${nombre}">
+      <h2>${nombre}</h2>
+      <p>${descripcion}</p>
+      <p class="price">$${precio}</p>
+      <button class="buy-button" type="button">Comprar</button>
+    `;
+    articuloDiv.appendChild(li);
+  });
+  seccionArticulos.appendChild(articuloDiv);
 }
