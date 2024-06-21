@@ -1,6 +1,4 @@
-// conexionAPI.js
-
-const apiUrl = 'https://backgutzy3d.onrender.com/api/productos'; // URL de tu API
+const apiUrl = 'https://backgutzy3d.onrender.com/api/productos'; 
 
 export async function articulos() {
   try {
@@ -11,22 +9,23 @@ export async function articulos() {
     }
     
     const articulosJSON = await response.json();
-    const articulosAdecuados = adaptarFormato(articulosJSON); // Adaptamos el formato recibido
+    const articulosAdecuados = adaptarFormato(articulosJSON); // Adaptamos el formato recibido filtrando los productos no habilitados
     
     return articulosAdecuados;
   } catch (error) {
     console.error('Error:', error);
-    throw error; // Re-lanzamos el error para manejarlo en el componente que llame a esta función
+    throw error; 
   }
 }
 
-// Función para adaptar el formato de los productos
 function adaptarFormato(productos) {
-  return productos.map(producto => ({
-    id: producto.Id_Producto,
-    nombre: producto.Nombre,
-    descripcion: producto.Descripcion,
-    img: `../assets/images/${producto.Imagen}`,
-    precio: producto.Precio
-  }));
+  return productos
+    .filter(producto => producto.Habilitado === "SI") // Filtramos los productos habilitados solamente
+    .map(producto => ({
+      id: producto.Id_Producto,
+      nombre: producto.Nombre,
+      descripcion: producto.Descripcion,
+      img: `../assets/images/${producto.Imagen}`,
+      precio: producto.Precio
+    }));
 }
