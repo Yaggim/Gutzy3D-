@@ -2,6 +2,7 @@ import { articulos } from "./conexionAPI.js";
 
 const seccionArticulos = document.querySelector(".container-section");
 const searchBox = document.querySelector("#search");
+const apiUrl = 'https://backgutzy3d.onrender.com/api/actualizar';
 
 // Listar Productos
 export async function listarArticulos() {
@@ -49,10 +50,34 @@ vaciarCarritoBtn.addEventListener("click", () => {
 
 carrito.addEventListener('click', eliminarArticulo);
 
-finalizarCompraBtn.addEventListener("click", () => {
+async function actualizarStock(id, cantidad) {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id, cantidad })
+    });
+    if (!response.ok) {
+      throw new Error('Error al actualizar el stock');
+    }
+    const result = await response.json();
+    console.log(result.message);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+finalizarCompraBtn.addEventListener("click", async () => {
   if (articulosCarrito.length === 0) {
     alert("El carrito está vacío");
   } else {
+
+    for (const articulo of articulosCarrito) {
+      await actualizarStock(articulo.id, articulo.cantidad);
+    }
+
     alert("¡Compra exitosa!");
     articulosCarrito = []; // Vaciar el carrito después de la compra
     limpiarHTML();
@@ -166,3 +191,4 @@ function mostrarArticulos(articulosLista) {
   });
   seccionArticulos.appendChild(articuloDiv);
 }
+
