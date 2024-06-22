@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log('Login exitoso como cliente');
             localStorage.setItem('isLoggedIn', 'true');
             mostrarBotonCerrarSesion();
-            window.location.href = '/index.html'; // Redirigir al inicio
+            window.location.href = '../index.html'; 
         } else {
             throw new Error('Respuesta no reconocida de la API');
         }
